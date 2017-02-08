@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<script type="text/javascript">
+<!--
+var image1=new Image()
+image1.src="pic1.jpg"
+var image2=new Image()
+image2.src="pic2.jpg"
+var image3=new Image()
+image3.src="pic3.jpg"
+//-->
+</script>
+<meta charset="utf-8">
+<title>My Slideshow</title>
+</head>
+
+<body>
+<a href="javascript:slidelink()"><img src="pic1.jpg" name="slide" width="460" height="385" /></a> 
+<script type="text/javascript">
+<!--
+//variable that will increment through the images
+var step=1
+var whichimage=1
+function slideit(){
+//if browser does not support the image object, exit.
+if (!document.images)
+return
+document.images.slide.src=eval("image"+step+".src")
+whichimage=step
+if (step<3)
+step++
+else
+step=1
+//call function "slideit()" every 2.5 seconds
+setTimeout("slideit()",2500)
+}
+slideit()
+function slidelink(){
+	if(whichimage==1)
+	window.location="linkforpic1.html"
+	else if (whichimage==2)
+	window.location="http://www.uwo.ca"
+	else if (whichimage==3)
+	window.location="http://www.google.ca"
+}
+//-->
+</script>
+</body>
+</html>
